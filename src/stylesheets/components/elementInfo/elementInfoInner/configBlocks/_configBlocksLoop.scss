@@ -1,0 +1,85 @@
+.configBlocks {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-bottom: 2px solid;
+
+    @include themify($themes) {
+        background: themed('main-background-opacity-80');
+    }
+
+    ul {
+        padding: 0;
+        display: flex;
+        flex-direction: column-reverse;
+        margin-bottom: 3px;
+        max-height: 100%;
+        overflow-y: visible;
+
+        &.blockS {
+            margin-top: 15.5px;
+        }
+
+        &.blockP {
+
+            li {
+                background: $block-color-3-alt;
+                border: 1px solid $block-color-3;
+            }
+        }
+
+        &.blockD {
+            margin-top: 5px;
+
+            li {
+                background: $block-color-4-alt;
+                border: 1px solid $block-color-4;
+            }
+        }
+
+        &.blockF {
+            margin-top: 10px;
+
+            li {
+                background: $block-color-10-alt;
+                border: 1px solid $block-color-10;
+            }
+        }
+        
+        ul {
+            padding: 0 8px;
+
+            &.subShell {
+                display: flex;
+                flex-direction: row;
+                font-size: 16px;
+                line-height: 1;
+                align-items: center;
+            }
+        }
+
+        li {
+            width: 23px;
+            height: 23px;
+            background: $block-color-2-alt;
+            border: 1px solid $block-color-2;
+            border-radius: 3px;
+            margin-right: 3px;
+            font-size: 20px;
+
+            &:first-child {
+                margin-left: auto;
+            }
+
+            &.active {
+                border: 2px solid;
+                line-height: 19px;
+            }
+
+            span {
+                letter-spacing: -11px;
+                margin-left: -11px;
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+.calculator-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    align-items: flex-start;
+
+    @import 'calculator/calculatorToggle';
+  
+    .calcWithCompoundList {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: center;
+        overflow: hidden;
+        backface-visibility: hidden;
+        margin-top: -15px;
+    
+        > svg {
+            margin: 0 10px;
+            z-index: 1;
+        }
+    
+        .calculator {
+            text-align: left;
+            display: grid;
+            border: 2px solid #accc3d;
+            border-radius: 10px;
+            background: $block-color-5-alt;
+            z-index: 1;
+            position: relative;
+
+            @import 'calculator/choiceOverlay';
+    
+            .calcInner {
+                padding: 20px;
+    
+                .calcChoose {
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin-top: 20px;
+                    align-items: center;
+                    position: relative;
+                    justify-content: flex-start;
+
+                    @import 'calculator/calculatorChoose';
+                }
+            }
+        }
+
+        @import 
+            'calculator/compound',
+            'calculator/compoundInfo';
+    }
+}

@@ -1,0 +1,85 @@
+.line {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+
+    @include themify($themes) {
+        background: themed('main-background-900');
+    }
+
+    &::before {
+        width: 16px;
+        height: 3.5px;
+        border-radius: 2px;
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @include themify($themes) {
+            background: themed('main-text');
+        }
+    }
+}
+
+.plus {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+
+    @include themify($themes) {
+        background: themed('main-background-900');
+    }
+
+    &::before {
+        width: 16px;
+        height: 3.5px;
+        border-radius: 2px;
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @include themify($themes) {
+            background: themed('main-text');
+        }
+    }
+
+    &::after {
+        width: 3.5px;
+        height: 16px;
+        border-radius: 2px;
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @include themify($themes) {
+            background: themed('main-text');
+        }
+    }
+}
+
+.relative {
+    position: relative;
+}
+
+.h {
+    visibility: hidden;
+}
+
+.loadingSpinner {
+
+    use {
+        @include themify($themes) {
+            stroke: themed('main-text');
+        }
+    }
+}

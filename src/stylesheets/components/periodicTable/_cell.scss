@@ -1,0 +1,71 @@
+li {
+	list-style: none;
+	border: 1px solid;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 10px 0;
+	position: relative;
+	min-height: 98px;
+	display: grid;
+
+	@include pt-seriesify($button: false, $back: true);
+
+	@include themify($themes) {
+		background: themed('main-background-opacity-90');
+	}
+
+	&.fBlockSymbol {
+
+		.mainInfo {
+
+			h2 {
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	&.lantanowiec {
+		margin-top: 30px;
+	}
+
+	.mainInfo {
+		position: relative;
+		z-index: 1;
+		align-self: center;
+
+		h2 {
+			font-size: 2rem;
+			margin: 0;
+
+			span {
+				font-size: 1rem;
+			}
+		}
+
+		h6 {
+			&.elementName {
+				font-size: 0.67rem;
+				font-weight: 400;
+				margin: 0;
+			}
+
+			&.elementInfo {
+				font-size: 0.8125rem;
+				font-weight: 500;
+				margin: 0;
+				margin-top: 0.3125rem;
+			}
+		}
+	}
+
+	.visualizer {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		bottom: 0;
+		left: 0;
+		z-index: 0;
+		border-radius: 5px;
+		background: #ffffff33;
+	}
+}

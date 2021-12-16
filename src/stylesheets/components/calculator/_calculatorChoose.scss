@@ -1,0 +1,81 @@
+.calcChooseAtom {
+    padding: 5px 10px;
+    width: 100%;
+    max-width: 240px;
+    transition: all 0.5s cubic-bezier(0,1,1,1);
+    transform-origin: center left;
+
+    > div {
+        overflow: hidden;
+        width: 220px;
+    
+        button {
+            float: right;
+        }
+    
+        h3 {
+            margin: 0;
+            font-weight: 400;
+        }
+    
+        h2 {
+            margin: 0;
+            font-weight: 400;
+            margin-bottom: 5px;
+    
+            .symbol {
+                font-weight: 700;
+            }
+        }
+    
+        .inputWrapper {
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+
+            @include themify($themes) {
+                border: 2px solid themed('main-text');
+            }
+    
+            .line {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translatey(-50%);
+                border: 0;
+            }
+    
+            .plus {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translatey(-50%);
+                border: 0;
+            }
+    
+            input {
+                font-size: 20px;
+                padding: 10px 0;
+                width: 100%;
+                text-align: center;
+                font-family: $text-font-stack;
+                font-weight: 700;
+                outline: none;
+                border: 0;
+
+                @include themify($themes) {
+                    background: themed('main-background-900');
+                    color: themed('main-text');
+                }
+            }
+        }
+    }
+}
+
+.plus, .line {
+    border-radius: 50%;
+    
+    @include themify($themes) {
+        border: 2px solid themed('main-text');
+    }
+}

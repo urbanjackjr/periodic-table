@@ -1,0 +1,16 @@
+li {
+    text-align: start;
+    font-size: 15px;
+    padding: 5px 5px 5px;
+    border-bottom: 1px solid #343434;
+    font-weight: 500;
+    cursor: pointer;
+
+    a {
+        text-decoration: none;
+        
+        @include themify($themes) {
+            color: themed('main-text');
+        }
+    }
+}

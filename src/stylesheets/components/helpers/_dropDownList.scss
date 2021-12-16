@@ -1,0 +1,48 @@
+.dropDownList {
+    font-weight: 600;
+    border: 2px solid #ee4b67;
+    box-shadow: 0px 0px 2px 1px rgb(238 75 103 / 80%);
+    width: 100%;
+    border-radius: 22px;
+    display: grid;
+    overflow: hidden;
+
+    @include themify($themes) {
+        background: themed('main-background-900');
+    }
+  
+    .chosen {
+        background: $block-color-2-alt;
+        padding: 10px 30px 10px 10px;
+        border-radius: 22px;
+        z-index: 1;
+        cursor: pointer;
+        position: relative;
+  
+        svg {
+            position: absolute;
+            width: 12px;
+            top: 13px;
+            right: 18px;
+            transition: 0.5s ease;
+        }
+    }
+  
+    ul {
+        overflow-y: scroll;
+        max-height: 300px;
+        margin: 0;
+  
+        li {
+            font-size: 15px;
+            padding: 5px 0 8px;
+            border-bottom: 1px solid #343434;
+            list-style: none;
+            cursor: pointer;
+
+            &:last-child {
+                border: 0;
+            }
+        }
+    }
+}

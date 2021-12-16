@@ -1,0 +1,7 @@
+.watermark {
+    position: absolute;
+    right: 0;
+    bottom: calc((100% + 30px)/9);
+    transform: translate(0, calc(-100% - 30px));
+    opacity: 0.15;
+}

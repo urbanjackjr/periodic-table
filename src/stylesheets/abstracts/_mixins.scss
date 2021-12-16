@@ -1,0 +1,104 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+    @if $self {
+        &,
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+    } @else {
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+    }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Kitty Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+    #{$context} & {
+        @content;
+    }
+}
+
+/// Responsive breakpoint manager
+/// @access public
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
+@mixin respond-to($breakpoint) {
+    $raw-query: map-get($breakpoints, $breakpoint);
+
+    @if $raw-query {
+        $query: if(
+            type-of($raw-query) == "string",
+            unquote($raw-query),
+            inspect($raw-query)
+        );
+
+        @media #{$query} {
+            @content;
+        }
+    } @else {
+        @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+    }
+}
+
+/// Themer
+/// @author medium
+/// @param {Map} $themes
+@mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+        [theme="#{$theme}"] & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), "#{$key}");
+                $theme-map: map-merge(
+                    $theme-map,
+                    (
+                        $key: $value,
+                    )
+                ) !global;
+            }
+
+            @content;
+            $theme-map: null !global;
+        }
+    }
+}
+
+/// Series based styles
+/// @param {Map} $pt-series
+@mixin pt-seriesify($button: false, $back: false) {
+    @each $serie, $color in $pt-series {
+        &.#{$serie} {
+            border-color: $color;
+            box-shadow: 0px 0px 5px 1px #{$color}cc;
+
+            @if $button {
+                button,
+                div {
+                    border-color: $color;
+                }
+            }
+
+            @if $back {
+                .elementHeader,
+                .visualizer {
+                    background: #{$color}26;
+                }
+            }
+        }
+    }
+}

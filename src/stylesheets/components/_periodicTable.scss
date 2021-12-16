@@ -1,0 +1,11 @@
+.table {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 5px;
+    position: relative;
+    
+    @import 
+        'periodicTable/cell',
+        'periodicTable/legend',
+        'periodicTable/watermark';
+}

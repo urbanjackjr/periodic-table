@@ -1,0 +1,30 @@
+.elementHeader {
+    justify-self: center;
+    text-align: center;
+    width: 100%;
+    font-family: $text-font-stack;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    @include themify($themes) {
+        background: themed('main-background-800');
+    }
+  
+    h2 {
+        font-size: 50px;
+        margin: 0;
+  
+        span {
+            font-size: 23px;
+        }
+    }
+  
+    h3 {
+        margin: 0;
+  
+        &.groupBlock {
+            margin-top: 10px;
+            font-weight: 300;
+        }
+    }
+}

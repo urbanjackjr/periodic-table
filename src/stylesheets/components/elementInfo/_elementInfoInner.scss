@@ -1,0 +1,50 @@
+.back {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.elementInfo {
+    width: 100%;
+    max-width: 600px;
+    justify-self: center;
+    align-self: center;
+    padding: 0 0 20px 0;
+    display: grid;
+    position: fixed;
+    z-index: 101;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    overflow: hidden;
+
+    @include themify($themes) {
+        color: themed('main-text');
+        background: themed('main-background-900');
+        border: 2px solid themed('main-background-100');
+        box-shadow: 0px 0px 5px 1px themed('main-background-300');
+
+        @include pt-seriesify($button: true, $back: true);
+    }
+
+    > ul {
+        max-height: 40vh;
+        overflow-y: scroll;
+        margin: 0 auto;
+        position: relative;
+        width: 100%;
+        max-width: 420px;
+
+        @import 'elementInfoInner/elementInfoList';
+    }
+
+    @import 
+        'elementInfoInner/configBlocks',
+        'elementInfoInner/elementHeader';
+        
+}

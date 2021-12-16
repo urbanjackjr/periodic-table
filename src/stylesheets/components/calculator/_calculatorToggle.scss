@@ -1,0 +1,25 @@
+.icon {
+    padding: 12px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    transition: 0.5s ease;
+    line-height: 1;
+    font-weight: 700;
+    cursor: pointer;
+
+    @include themify($themes) {
+        border: 2px solid themed('main-text');
+        background: themed('main-background-100');
+        color: themed('main-background-900');
+    }
+  
+    svg {
+        width: 36px;
+        margin-right: 8px;
+
+        @include themify($themes) {
+            color: themed('main-background-900');
+        }
+    }
+}

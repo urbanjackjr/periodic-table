@@ -1,0 +1,72 @@
+// -----------------------------------------------------------------------------
+// When having several themes, this file contains everything related to the
+// default one.
+// -----------------------------------------------------------------------------
+
+$block-color-1: hsl(213, 52%, 46%);
+$block-color-2: hsl(350, 83%, 61%);
+$block-color-3: hsl(32, 98%, 55%);
+$block-color-4: hsl(48, 90%, 51%);
+$block-color-5: hsl(73, 58%, 52%);
+$block-color-6: hsl(193, 91%, 70%);
+$block-color-7: hsl(311, 37%, 58%);
+$block-color-8: hsl(285, 62%, 55%);
+$block-color-9: hsl(184, 62%, 61%);
+$block-color-10: hsl(196, 54%, 60%);
+$block-color-1-alt: hsl(213, 52%, 46%, 15%);
+$block-color-2-alt: hsl(350, 83%, 61%, 15%);
+$block-color-3-alt: hsl(32, 98%, 55%, 15%);
+$block-color-4-alt: hsl(48, 90%, 51%, 15%);
+$block-color-5-alt: hsl(73, 58%, 52%, 15%);
+$block-color-6-alt: hsl(193, 91%, 70%, 15%);
+$block-color-7-alt: hsl(311, 37%, 58%, 15%);
+$block-color-8-alt: hsl(285, 62%, 55%, 15%);
+$block-color-9-alt: hsl(184, 62%, 61%, 15%);
+$block-color-10-alt: hsl(196, 54%, 60%, 15%);
+
+$themes: (
+  light: (
+    main-text: black,
+    main-background-900: white,
+    main-background-850: hsl(4, 0%, 95%),
+    main-background-800: hsl(4, 0%, 90%),
+    main-background-700: hsl(4, 0%, 80%),
+    main-background-600: hsl(4, 0%, 70%),
+    main-background-500: hsl(4, 0%, 60%),
+    main-background-400: hsl(4, 0%, 50%),
+    main-background-300: hsl(4, 0%, 40%),
+    main-background-200: hsl(4, 0%, 30%),
+    main-background-100: hsl(4, 0%, 20%),
+    main-background-opacity-90: hsl(217, 0%, 0%, 5%),
+    main-background-opacity-80: hsl(217, 0%, 0%, 20%),
+    main-background-opacity-70: hsl(217, 0%, 0%, 30%),
+    main-background-opacity-60: hsl(217, 0%, 0%, 40%),
+    main-background-opacity-50: hsl(217, 0%, 0%, 50%),
+    main-background-opacity-40: hsl(217, 0%, 0%, 60%),
+    main-background-opacity-30: hsl(217, 0%, 0%, 70%),
+    main-background-opacity-20: hsl(217, 0%, 0%, 80%),
+    main-background-opacity-10: hsl(217, 0%, 0%, 90%),
+  ),
+  dark: (
+    main-text: white,
+    main-background-900: black,
+    main-background-850: hsl(4, 0%, 5%),
+    main-background-800: hsl(4, 0%, 10%),
+    main-background-700: hsl(4, 0%, 20%),
+    main-background-600: hsl(4, 0%, 30%),
+    main-background-500: hsl(4, 0%, 40%),
+    main-background-400: hsl(4, 0%, 50%),
+    main-background-300: hsl(4, 0%, 60%),
+    main-background-200: hsl(4, 0%, 70%),
+    main-background-100: hsl(4, 0%, 80%),
+    main-background-opacity-90: hsl(4, 0%, 100%, 10%),
+    main-background-opacity-80: hsl(4, 0%, 100%, 20%),
+    main-background-opacity-70: hsl(4, 0%, 100%, 30%),
+    main-background-opacity-60: hsl(4, 0%, 100%, 40%),
+    main-background-opacity-50: hsl(4, 0%, 100%, 50%),
+    main-background-opacity-40: hsl(4, 0%, 100%, 60%),
+    main-background-opacity-30: hsl(4, 0%, 100%, 70%),
+    main-background-opacity-20: hsl(4, 0%, 100%, 80%),
+    main-background-opacity-10: hsl(4, 0%, 100%, 90%),
+  ),
+);

@@ -1,0 +1,57 @@
+
+.fade-enter-from {
+    opacity: 0;
+}
+  
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s ease;
+}
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.calc-list-enter-from,
+.calc-list-leave-to { 
+    opacity: 0;
+    transform: scale(0) translateX(-100%);
+}
+
+.calc-list-leave-active {
+    position: absolute !important;
+}
+  
+.show-enter-from {
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
+}
+
+.show-enter-active,
+.show-leave-active {
+    transition: 0.5s ease;
+}
+.show-enter,
+.show-leave-to {
+    opacity: 0;
+    max-height: 0 !important;
+    padding: 0;
+}
+
+.dropDownList {
+    .slide-enter-active,
+    .slide-leave-active {
+        transition: all 0.5s ease;
+    }
+    
+    .slide-enter-to,
+    .slide-leave-from {
+        max-height: 300px;
+    }
+    
+    .slide-enter-from,
+    .slide-leave-to {
+        max-height: 0px;
+    }
+}

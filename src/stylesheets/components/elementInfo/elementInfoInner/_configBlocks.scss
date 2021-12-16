@@ -1,0 +1,32 @@
+.configBlocks-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 105;
+    width: 100%;
+    transition: 0.5s cubic-bezier(.26,1.07,.85,1);
+
+    button {
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 0 0 10px 10px;
+        border-top: 0;
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 100%;
+        max-width: 298px;
+        
+        svg {
+            margin-left: 10px;
+            width: 15px;
+            transition: 0.5s cubic-bezier(.26,1.07,.85,1);
+        }
+    }
+
+    @import 'configBlocks/configBlocksLoop';
+}

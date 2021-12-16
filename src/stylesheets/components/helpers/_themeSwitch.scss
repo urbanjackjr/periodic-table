@@ -1,0 +1,15 @@
+.themeSwitch {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  
+    svg {
+        color: var(--main-text);
+        width: 28px;
+
+        @include themify($themes) {
+            color: themed('main-text');
+        }
+    }
+}

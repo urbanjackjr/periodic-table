@@ -1,0 +1,27 @@
+.compound-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    h3 {
+        font-weight: 400;
+        font-size: 25px;
+    }
+  
+    .compound {
+        border: 2px solid #accc3d;
+        font-size: 50px;
+        font-weight: 700;
+        text-align: center;
+        padding: 10px 20px;
+        border-radius: 7px;
+
+        @include themify($themes) {
+            background: themed('main-background-900');
+        }
+    }
+  
+    .info {
+        margin: 0 0 0 15px;
+    }
+}

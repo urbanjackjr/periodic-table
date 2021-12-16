@@ -1,0 +1,31 @@
+.legendCompound {
+    position: absolute;
+    margin-top: 0;
+    top: 20px;
+    left: 38.888%;
+    transform: translate(calc(-38.888% - 20px));
+    max-width: calc(11.111111111111% + 20px);
+    padding: 20px 10px;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: #bb6cac;
+    box-shadow: 0px 0px 5px 1px rgba(187, 108, 172, 0.8);
+  
+    h1 {
+        font-size: 64px;
+  
+        span {
+            font-size: 28px;
+        }
+    }
+  
+    h6 {
+        font-size: 22px;
+        margin-top: 10px;
+        font-weight: 500;
+    
+        &.chosenInfo {
+            font-size: 18px;
+        }
+    }
+}

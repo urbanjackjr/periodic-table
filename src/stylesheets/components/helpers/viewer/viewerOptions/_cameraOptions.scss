@@ -1,0 +1,55 @@
+.cameraOptions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transition: 0.8s cubic-bezier(.26,1.07,.85,1);
+    transform: translate(5px, 13.56px);
+
+    .icon {
+        margin-bottom: 3px;
+        display: block;
+        padding: 0;
+        border: 0;
+        background: none;
+
+        svg {
+            max-width: 28px;
+            padding: 3px;
+            border-radius: 5px;
+            border: 2px solid;
+
+            @include themify($themes) {
+                background: themed('main-background-100');
+                border-color: themed('main-text');
+            }
+        }
+
+        .line, .plus {
+            position: relative;
+            margin-bottom: 5px;
+            width: auto;
+            height: auto;
+            display: block;
+            padding: 12px;
+
+            @include themify($themes) {
+                background: themed('main-background-100');
+                border-color: themed('main-text');
+            }
+
+            &::before {
+
+                @include themify($themes) {
+                    background: themed('main-background-900');
+                }
+            }
+
+            &::after {
+
+                @include themify($themes) {
+                    background: themed('main-background-900');
+                }
+            }
+        }
+    }
+}

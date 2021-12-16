@@ -1,0 +1,107 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Scrollbars
+ */
+::-webkit-scrollbar {
+  	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+
+	@include themify($themes) {
+		background: themed('main-background-600');
+	}
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+	@include themify($themes) {
+		background: themed('main-background-700');
+	}
+}
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+body {
+	@include themify($themes) {
+		background: themed('main-background-900');
+		color: themed('main-text');
+	}
+}
+
+.app {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	background: transparent;
+	padding: 20px;
+	font-family: "Dosis";
+	max-width: 1920px;
+	margin: 0 auto;
+  
+	.wrapper {
+	  	position: relative;
+	}
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+	color: $brand-color;
+	text-decoration: none;
+
+	@include on-event {
+		color: $text-color;
+		text-decoration: underline;
+	}
+}
+
+button {
+	border-radius: 5px;
+	padding: 5px;
+	overflow: hidden;
+	border: 2px solid;
+	text-align: center;
+	font-family: $text-font-stack;
+	font-weight: 700;
+	outline: none;
+	cursor: pointer;
+
+  	@include themify($themes) {
+		color: themed('main-text');
+		background: themed('main-background-900');
+  	}
+}
+
+ul {
+  	list-style: none;
+}

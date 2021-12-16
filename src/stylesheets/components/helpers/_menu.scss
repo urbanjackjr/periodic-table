@@ -1,0 +1,27 @@
+.menu {
+    .nav {
+        width: 100%;
+        margin: 0 auto;
+
+        ul {
+            display: flex;
+            justify-content: space-evenly;
+            overflow: hidden;
+
+            li {
+                flex: 1 1 200px;
+                padding: 5px 10px 8px;
+                text-align: center;
+                cursor: pointer;
+
+                @include themify($themes) {
+                    background: themed('main-background-700');
+                }
+
+                &.active {
+                    background: $block-color-2-alt;
+                }
+            }
+        }
+    }
+}
