@@ -1,11 +1,8 @@
 <template>
   <ul class="compoundList" ref="compoundList">
-    <li v-for="compound in data" :key="compound.CID">
-      <a
-        class="compoundLink"
-        @click="loadNewCompound(compound)"
-        >{{ compound.MolecularFormula }}</a
-      >
+    <li v-for="compound in data" :key="compound.CID" @click="loadNewCompound(compound)">
+      <span class="molecularFormula">{{ compound.MolecularFormula }}</span>
+      <span class="moreInfo">{{ compound.IsomericSMILES }}</span>
     </li>
   </ul>
 </template>
@@ -32,7 +29,7 @@ export default {
     // sub/sup Compound Formula RegEx
     this.$nextTick(function () {
       for (let i = 0; i < this.data.length; i++) {
-          this.compoundRegExp(document.getElementsByClassName("compoundLink")[i]);
+          this.compoundRegExp(document.getElementsByClassName("molecularFormula")[i]);
       }
     });
   },
