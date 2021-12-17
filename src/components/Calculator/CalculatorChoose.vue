@@ -23,32 +23,32 @@
 	</div>
 </template>
 <script>
-	import Count from "../../helpers/components/Count.vue";
-	import { mapState, mapMutations } from "vuex";
+import Count from "../../helpers/components/Count.vue";
+import { mapState, mapMutations } from "vuex";
 
-	export default {
-		components: { Count },
-		props: {
-			symbol: String,
-			ma: Number,
-			wi: Number,
-			n: Number,
+export default {
+	components: { Count },
+	props: {
+		symbol: String,
+		ma: Number,
+		wi: Number,
+		n: Number,
+	},
+	methods: {
+		...mapMutations(["elementChoice"]),
+		add(n) {
+			this.elementQuantity[n]++;
 		},
-		methods: {
-			...mapMutations(["elementChoice"]),
-			add(n) {
-				this.elementQuantity[n]++;
-			},
-			sub(n) {
-				this.elementQuantity[n] > 1
-					? this.elementQuantity[n]--
-					: this.elementQuantity[n];
-			},
+		sub(n) {
+			this.elementQuantity[n] > 1
+				? this.elementQuantity[n]--
+				: this.elementQuantity[n];
 		},
-		computed: {
-			...mapState({
-				elementQuantity: (state) => state.math.elementQuantity,
-			}),
-		},
-	};
+	},
+	computed: {
+		...mapState({
+			elementQuantity: (state) => state.math.elementQuantity,
+		}),
+	},
+};
 </script>

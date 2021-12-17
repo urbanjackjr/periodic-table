@@ -8,22 +8,22 @@
 	</div>
 </template>
 <script>
-	import DropDownList from "../helpers/components/DropDownList.vue";
-	import { mapState, mapMutations, mapGetters } from "vuex";
+import DropDownList from "../helpers/components/DropDownList.vue";
+import { mapState, mapMutations, mapGetters } from "vuex";
 
-	export default {
-		name: "Property Choose",
-		components: { DropDownList },
-		methods: {
-			...mapMutations(["changeInfo", "maxValue"]),
-			childClick(value) {
-				this.changeInfo(value);
-      			this.$store.commit("maxValue");
-			},
+export default {
+	name: "Property Choose",
+	components: { DropDownList },
+	methods: {
+		...mapMutations(["changeInfo", "maxValue"]),
+		childClick(value) {
+			this.changeInfo(value);
+			this.$store.commit("maxValue");
 		},
-		computed: {
-			...mapState(["mainInfo"]),
-			...mapGetters(["properties"]),
-		},
-	};
+	},
+	computed: {
+		...mapState(["mainInfo"]),
+		...mapGetters(["properties"]),
+	},
+};
 </script>

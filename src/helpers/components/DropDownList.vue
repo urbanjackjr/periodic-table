@@ -33,36 +33,36 @@
 	</div>
 </template>
 <script>
-	import translations from "../../assets/translations.json";
+import translations from "../../assets/translations.json";
 
-	export default {
-		name: "Drop-Down List",
-		props: {
-			info: Array,
-			translated: {
-				type: Boolean,
-				default: false,
-			},
+export default {
+	name: "Drop-Down List",
+	props: {
+		info: Array,
+		translated: {
+			type: Boolean,
+			default: false,
 		},
-		data() {
-			return {
-				down: false,
-				chosenInfo: this.info[0],
-				translations: translations,
-			};
+	},
+	data() {
+		return {
+			down: false,
+			chosenInfo: this.info[0],
+			translations: translations,
+		};
+	},
+	methods: {
+		translation(toTranslate) {
+			return this.translated
+				? this.translations[toTranslate]
+				: toTranslate;
 		},
-		methods: {
-			translation(toTranslate) {
-				return this.translated
-					? this.translations[toTranslate]
-					: toTranslate;
-			},
-			defaultClickEvents(value) {
-				this.down = false;
-				this.$emit("clicked", value);
-				this.chosenInfo = value;
-			},
+		defaultClickEvents(value) {
+			this.down = false;
+			this.$emit("clicked", value);
+			this.chosenInfo = value;
 		},
-		emits: ["clicked"],
-	};
+	},
+	emits: ["clicked"],
+};
 </script>

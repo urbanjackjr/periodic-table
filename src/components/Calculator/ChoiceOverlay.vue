@@ -21,7 +21,7 @@
 	</transition>
 </template>
 <script>
-	export default {
-		name: "Choice Overlay",
-	};
+export default {
+	name: "Choice Overlay",
+};
 </script>

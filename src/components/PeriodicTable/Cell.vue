@@ -20,18 +20,18 @@
 	</li>
 </template>
 <script>
-	import { mapState } from "vuex";
+import { mapState } from "vuex";
 
-	export default {
-		name: "Cell",
-		props: {
-			symbol: String,
-			name: String,
-			atomicNumber: [String, Number],
-			info: Object,
-		},
-		computed: {
-			...mapState(["max"]),
-		},
-	};
+export default {
+	name: "Cell",
+	props: {
+		symbol: String,
+		name: String,
+		atomicNumber: [String, Number],
+		info: Object,
+	},
+	computed: {
+		...mapState(["max"]),
+	},
+};
 </script>
