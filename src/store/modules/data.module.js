@@ -79,13 +79,16 @@ const data = {
           throw new Error(`API ${error}`);
         });
     },
-    getDataFromCID({state}, cid) {
+    getDataFromCID({state, commit}, cid) {
       state.compoundInfoListLoading = true;
       fetch("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/"+cid+"/property/MolecularWeight,MolecularFormula,CanonicalSMILES,IsomericSMILES,IUPACName,XLogP,ExactMass,MonoisotopicMass,TPSA,Complexity,Charge,RotatableBondCount,AtomStereoCount,BondStereoCount,CovalentUnitCount,Volume3D/JSON")
         .then((response) => response.json())
         .then((data) => {
           state.singleCompoundData = data.PropertyTable.Properties[0];
           state.compoundInfoListLoading = false;
+        })
+        .then(() => {
+          commit("compoundRegExp", document.querySelector(".MolecularFormula .value"));
         })
     },
     get3DSimiliarCompounds({state}) {

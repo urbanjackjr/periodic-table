@@ -4,7 +4,7 @@
         <div class="elementInfo">
             <Viewer viewerId="viewer" :showOptions="true" />
             <div class="elementHeader">
-                <h2 class="MolecularFormula">{{ data.MolecularFormula }}</h2>
+                <h2 class="MolecularFormula" v-html="regExpMolecularFormula"></h2>
             </div>
             <Menu :items="['Informacje o związku', 'Inne związki']">
                 <CompoundInfoList v-show="activeTab == 0" />
@@ -34,12 +34,13 @@ export default {
         ...mapState({
             data: (state) => state.data.singleCompoundData,
             activeTab: (state) => state.data.activeMenuTab,
-        })
+        }),
+        regExpMolecularFormula() {
+            return this.data.MolecularFormula.replace(/((?<!\+|\-|\/|(\>\d*))\d+)/g, "<sub>$1</sub>").replace(/(\-|\+)\d?/g, "<sup>$&</sup>");
+        }
     },
     mounted: function() {
         this.$nextTick(function() {
-            this.$store.commit("compoundRegExp", document.querySelector(".MolecularFormula"));
-            this.$store.commit("compoundRegExp", document.querySelector(".MolecularFormula .value"));
             this.$store.dispatch("getModel");
             this.$store.commit("mountCompoundModel", "viewer");
         })

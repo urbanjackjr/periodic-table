@@ -19,8 +19,12 @@
             text-align: left;
 
             &.value {
-                font-weight: 300;
+                font-weight: 400;
             }
         }
     }
 } 
+
+.loading {
+    position: static;
+}

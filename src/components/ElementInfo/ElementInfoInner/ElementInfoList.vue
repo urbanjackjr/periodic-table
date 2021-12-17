@@ -3,8 +3,9 @@
 		<span class="key">{{ infoInstanceKey }}:</span>
 		<span class="value">
 			<span v-html="preparedForRenderValue"></span>
-			<div v-if="infoInstanceUnit && infoInstanceUnit.length > 1" class="relative">
-				<DropDownList :info="infoInstanceUnit" @clicked="calculateValueOnUnitChange" />
+			<div v-if="infoInstanceUnit" :class="[infoInstanceUnit.length > 1 && 'relative', 'unit']">
+				<DropDownList v-if="infoInstanceUnit.length > 1" :info="infoInstanceUnit" @clicked="calculateValueOnUnitChange" />
+				<span v-else> {{ infoInstanceUnit[0] }}</span>
 			</div>
 		</span>
 	</li>
@@ -59,7 +60,7 @@
 		},
 		computed: {
 			preparedForRenderValue() {
-				return this.infoInstanceKey == "Konfiguracja elektronowa" ? this.calculatedInfoInstanceValue.replace(/(\d[s-z])(\d+)/gm, '$1<sup>$2</sup>') : this.calculatedInfoInstanceValue;
+				return this.infoInstanceKey == "Konfiguracja elektronowa" || this.infoInstanceKey == "Pełna konfiguracja elektronowa" ? this.calculatedInfoInstanceValue.replace(/(\d[a-z])(\d+)/g, '$1<sup>$2</sup>') : this.calculatedInfoInstanceValue;
 			}
 		}
 	};

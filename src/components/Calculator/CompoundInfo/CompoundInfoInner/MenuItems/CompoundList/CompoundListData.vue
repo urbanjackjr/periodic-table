@@ -18,6 +18,7 @@ export default {
     loadNewCompound(newCompound) {
         this.setActiveTab(0);
         this.loadNewCompoundModel(newCompound.IsomericSMILES)
+        this.$store.commit("compoundRegExp", document.querySelector(".MolecularFormula"));
         this.$store.dispatch("getDataFromCID", newCompound.CID)
     }
   },

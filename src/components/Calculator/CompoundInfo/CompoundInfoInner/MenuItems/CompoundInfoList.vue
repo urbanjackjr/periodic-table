@@ -26,12 +26,8 @@ export default {
             loading: (state) => state.data.compoundInfoListLoading,
         })
     },
+    mounted() {
+        this.$store.commit("compoundRegExp", document.querySelector(".MolecularFormula .value"));
+    }
 }
 </script>
-<style lang="scss" scoped>
-
-
-.loading {
-    position: static;
-}
-</style>
