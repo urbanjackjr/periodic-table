@@ -1,8 +1,20 @@
 .table {
-    display: grid;
-    grid-template-columns: repeat(18, 1fr);
-    gap: 5px;
     position: relative;
+
+    &.grid {
+        display: grid;
+        grid-template-columns: repeat(18, 1fr);
+        gap: 5px;
+    }
+
+    &.list {
+        display: flex;
+        flex-direction: column;
+
+        .h {
+            display: none;
+        }
+    }
     
     @import 
         'periodicTable/cell',

@@ -1,9 +1,7 @@
 <template>
-	<Loading :status="loading" />
 	<div
 		@click="
 			this.$store.dispatch('changeTheme');
-			changeTheTheme;
 		"
 		class="themeSwitch"
 	>
@@ -43,22 +41,14 @@
 </template>
 <script>
 import { mapState } from "vuex";
-import Loading from "./Loading.vue";
 
 export default {
 	name: "Theme Switch",
-	components: { Loading },
 	computed: {
 		...mapState({
 			storeTheme: (state) => state.themes.theme,
 			themeList: (state) => state.themes.themeList,
-			loading: (state) => state.themes.loading,
 		}),
-		changeTheTheme() {
-			document
-				.querySelector("html")
-				.setAttribute("theme", this.storeTheme);
-		},
 	},
 };
 </script>

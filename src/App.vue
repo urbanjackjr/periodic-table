@@ -1,6 +1,6 @@
 <template>
 	<div class="wrapper">
-		<ThemeSwitch />
+		<GlobalSettings />
 		<Calculator />
 		<PropertyChoice />
 		<PeriodicTable />
@@ -13,7 +13,7 @@
 	import PropertyChoice from "./components/PropertyChoice.vue";
 	import ElementInfo from "./components/ElementInfo.vue";
 	import Calculator from "./components/Calculator.vue";
-	import ThemeSwitch from "./helpers/components/ThemeSwitch.vue";
+	import GlobalSettings from "./components/GlobalSettings.vue";
 	import { mapState } from "vuex";
 
 	export default {
@@ -23,7 +23,7 @@
 			PropertyChoice,
 			ElementInfo,
 			Calculator,
-			ThemeSwitch,
+			GlobalSettings,
 		},
 		created() {
 			this.$store.dispatch("loadData");

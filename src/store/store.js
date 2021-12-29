@@ -2,6 +2,7 @@ import { createStore } from "vuex";
 import math from "./modules/math.module";
 import themes from "./modules/themes.module";
 import data from "./modules/data.module";
+import global from "./modules/global.module";
 import ptdata from "../assets/pt.json";
 
 const store = createStore({
@@ -90,6 +91,7 @@ const store = createStore({
         math: math,
         themes: themes,
         data: data,
+        global: global,
     },
 });
 

@@ -11,7 +11,7 @@
 	</li>
 </template>
 <script>
-import translations from "../../assets/translations.json";
+import translations from "../../../assets/translations.json";
 import { mapState } from "vuex";
 
 export default {

@@ -1,17 +1,9 @@
-li {
-	list-style: none;
-	border: 1px solid;
-	border-radius: 5px;
-	cursor: pointer;
-	padding: 10px 0;
+> li {
+	$grand: &;
 	position: relative;
-	min-height: 98px;
-	display: grid;
 
-	@include pt-seriesify($button: false, $back: true);
-
-	@include themify($themes) {
-		background: themed('main-background-opacity-90');
+	@at-root .list li {
+		margin-bottom: 10px;
 	}
 
 	&.fBlockSymbol {
@@ -32,6 +24,19 @@ li {
 		position: relative;
 		z-index: 1;
 		align-self: center;
+		list-style: none;
+		border: 1px solid;
+		border-radius: 5px;
+		cursor: pointer;
+		padding: 10px 0;
+		min-height: 98px;
+		display: grid;
+
+		@include pt-seriesify($button: false, $back: true);
+	
+		@include themify($themes) {
+			background: themed('main-background-opacity-90');
+		}
 
 		h2 {
 			font-size: 2rem;

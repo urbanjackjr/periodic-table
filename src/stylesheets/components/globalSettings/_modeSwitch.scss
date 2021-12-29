@@ -1,0 +1,25 @@
+.modeSwitch {
+    border-radius: 7px;
+    overflow: hidden;
+    display: flex;
+
+    @include themify($themes) {
+        border: 2px solid themed('main-text');
+    }
+
+    svg {
+        display: block;
+        
+        @include themify($themes) {
+            background: themed('main-background-700');
+        }
+
+        &.active {
+        
+            @include themify($themes) {
+                background: themed('main-background-100');
+                color: themed('main-background-900');
+            }
+        }
+    }
+}
