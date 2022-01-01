@@ -46,7 +46,7 @@
             inspect($raw-query)
         );
 
-        @media #{$query} {
+        @media (max-width: #{$query}) {
             @content;
         }
     } @else {
@@ -80,9 +80,9 @@
 
 /// Series based styles
 /// @param {Map} $pt-series
-@mixin pt-seriesify($button: false, $back: false) {
+@mixin pt-seriesify($button: false, $back: false, $child: '') {
     @each $serie, $color in $pt-series {
-        &.#{$serie} {
+        &.#{$serie} #{$child} {
             border-color: $color;
             box-shadow: 0px 0px 5px 1px #{$color}cc;
 

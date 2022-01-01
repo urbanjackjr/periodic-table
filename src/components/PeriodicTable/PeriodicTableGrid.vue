@@ -1,6 +1,6 @@
 <template>
 	<ul :class="['table', tableMode]">
-		<Legend />
+		<Legend v-if="tableMode == 'grid'" />
 		<Cell
 			v-for="atom in tabledata"
 			:class="[

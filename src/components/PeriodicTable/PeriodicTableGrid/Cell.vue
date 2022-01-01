@@ -6,17 +6,17 @@
 				>{{ symbol }}
 			</h2>
 			<h6 class="elementName">{{ name }}</h6>
-			<h6 class="elementInfo">{{ info.value }}</h6>
+			<h6 v-if="tableMode == 'grid'" class="elementInfo">{{ info.value }}</h6>
+			<div
+				:style="{
+					height:
+						typeof info.value === 'number'
+							? (Math.abs(info.value) * 100) / max + '%'
+							: 0,
+				}"
+				class="visualizer"
+			></div>
 		</div>
-		<div
-			:style="{
-				height:
-					typeof info.value === 'number'
-						? (Math.abs(info.value) * 100) / max + '%'
-						: 0,
-			}"
-			class="visualizer"
-		></div>
 		<keep-alive>
 			<ElementInfoList v-if="tableMode == 'list'" :index="index" />
 		</keep-alive>

@@ -8,7 +8,7 @@
 	</div>
 </template>
 <script>
-import DropDownList from "../helpers/components/DropDownList.vue";
+import DropDownList from "../../helpers/components/DropDownList.vue";
 import { mapState, mapMutations, mapGetters } from "vuex";
 
 export default {

@@ -66,7 +66,7 @@ const store = createStore({
         },
         chooseAtomFromTable({ state, dispatch }, atom) {
             !state.chooseElement
-                ? atom.atomicNumber
+                ? atom.atomicNumber && state.global.tableMode == 'grid'
                     ? (state.showAllInfoIndex = atom.index)
                     : ""
                 : ((state.chosenElementAtomIndex[state.chooseElement] = atom.index), (state.chooseElement = 0));

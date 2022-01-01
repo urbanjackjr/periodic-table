@@ -1,6 +1,6 @@
 <template>
 	<ul class="elementInfoList">
-		<li v-for="(loopValue, key) in properties(index, 3)" :key="key">
+		<li v-for="(loopValue, key) in properties(index, 6)" :key="key">
 			<span class="key">{{ translations[key] }}:</span>
 			<span class="value">
 				<span v-html="preparedForRenderValue(translations[key], loopValue.value)"></span>
@@ -11,7 +11,7 @@
 					<DropDownList
 						v-if="loopValue.unit.length > 1"
 						:info="loopValue.unit"
-						@clicked="calculateValueOnUnitChange(loopValue.value, loopValue.unit)"
+						@clicked="getUnitFromChildComponent, calculateValueOnUnitChange(loopValue.value)"
 					/>
 					<span v-else>{{ loopValue.unit[0] }}</span>
 				</div>
@@ -39,34 +39,38 @@ export default {
 		};
 	},
 	methods: {
-		calculateValueOnUnitChange(value, unit) {
+		getUnitFromChildComponent(unit) {
 			this.unit = unit;
+			console.log(this.unit)
+		},
+		calculateValueOnUnitChange(value) {
+			// console.log(this.unit);
 			this.value = value;
-			switch (unit) {
+			switch (this.unit) {
 				case "Å":
 					value =
-						value / 100;
+						this.value / 100;
 					break;
 				case "°C":
 					value =
-						Math.round((value - 273.15) * 100) /
+						Math.round((this.value - 273.15) * 100) /
 						100;
 					break;
 				case "°F":
 					value =
 						Math.round(
-							(((value - 273.15) * 9) / 5 + 32) *
+							(((this.value - 273.15) * 9) / 5 + 32) *
 								100
 						) / 100;
 					break;
 				case "eV":
 					value =
-						Math.round(value * 0.01036427 * 100) /
+						Math.round(this.value * 0.01036427 * 100) /
 						100;
 					break;
 				case "kg/m^3":
 					value =
-						Math.round(value * 1000 * 100) / 100;
+						Math.round(this.value * 1000 * 100) / 100;
 					break;
 				default:
 					value = value;

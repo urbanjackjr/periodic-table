@@ -1,9 +1,33 @@
 > li {
 	$grand: &;
 	position: relative;
+	display: flex;
 
-	@at-root .list li {
+	@include pt-seriesify($button: false, $back: true, $child: '.mainInfo');
+
+	@at-root .table.list > li {
 		margin-bottom: 10px;
+		justify-content: center;
+
+		.mainInfo {
+			padding: 10px 20px;
+			cursor: auto;
+
+			h2 {
+				font-size: 3rem;
+
+				span {
+					font-size: 1.3rem;
+				}
+			}
+
+			h6 {
+
+				&.elementName {
+					font-size: 1.2rem;
+				}
+			}
+		}
 	}
 
 	&.fBlockSymbol {
@@ -23,7 +47,7 @@
 	.mainInfo {
 		position: relative;
 		z-index: 1;
-		align-self: center;
+		align-self: stretch;
 		list-style: none;
 		border: 1px solid;
 		border-radius: 5px;
@@ -31,11 +55,15 @@
 		padding: 10px 0;
 		min-height: 98px;
 		display: grid;
-
-		@include pt-seriesify($button: false, $back: true);
+		align-items: center;
+		flex: 0 1 150px;
 	
 		@include themify($themes) {
 			background: themed('main-background-opacity-90');
+		}
+
+		@include respond-to('large') {
+			color: red;
 		}
 
 		h2 {
@@ -61,16 +89,28 @@
 				margin-top: 0.3125rem;
 			}
 		}
+
+		.visualizer {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			bottom: 0;
+			left: 0;
+			z-index: 0;
+			border-radius: 5px;
+			background: #ffffff33;
+		}
 	}
 
-	.visualizer {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		bottom: 0;
-		left: 0;
-		z-index: 0;
-		border-radius: 5px;
-		background: #ffffff33;
+	.elementInfoList {
+		max-height: 200px;
+		overflow-y: scroll;
+		margin-left: 1rem;
+		flex: 0 1 300px;
+
+		li {
+			font-size: 0.8rem;
+			margin: 0;
+		}
 	}
 }
