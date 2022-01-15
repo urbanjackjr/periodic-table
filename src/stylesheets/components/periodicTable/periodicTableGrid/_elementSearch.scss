@@ -1,0 +1,10 @@
+.elementSearch {
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+
+    @include themify($themes) {
+        border: 2px solid themed('main-text');
+        background: themed('main-background-100');
+        color: themed('main-background-900');
+    }
+}

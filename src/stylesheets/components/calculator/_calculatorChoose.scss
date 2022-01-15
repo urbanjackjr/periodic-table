@@ -57,14 +57,7 @@
             }
     
             input {
-                font-size: 20px;
-                padding: 10px 0;
                 width: 100%;
-                text-align: center;
-                font-family: $text-font-stack;
-                font-weight: 700;
-                outline: none;
-                border: 0;
 
                 @include themify($themes) {
                     background: themed('main-background-900');

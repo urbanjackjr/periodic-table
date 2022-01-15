@@ -36,6 +36,11 @@
 
 			h2 {
 				font-size: 1.5rem;
+				line-height: 1;
+			}
+
+			h6 {
+				display: none;
 			}
 		}
 	}
@@ -60,10 +65,6 @@
 	
 		@include themify($themes) {
 			background: themed('main-background-opacity-90');
-		}
-
-		@include respond-to('large') {
-			color: red;
 		}
 
 		h2 {

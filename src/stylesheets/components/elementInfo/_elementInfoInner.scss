@@ -32,19 +32,9 @@
         @include pt-seriesify($button: true, $back: true);
     }
 
-    > ul {
-        max-height: 40vh;
-        overflow-y: scroll;
-        margin: 0 auto;
-        position: relative;
-        width: 100%;
-        max-width: 420px;
-
-        @import 'elementInfoInner/elementInfoList';
-    }
-
     @import 
         'elementInfoInner/configBlocks',
+        'elementInfoInner/elementInfoList',
         'elementInfoInner/elementHeader';
         
 }

@@ -1,84 +1,44 @@
 <template>
-	<li v-if="infoInstanceValue">
-		<span class="key">{{ infoInstanceKey }}:</span>
-		<span class="value">
-			<span v-html="preparedForRenderValue"></span>
-			<div
-				v-if="infoInstanceUnit"
-				:class="[infoInstanceUnit.length > 1 && 'relative', 'unit']"
-			>
-				<DropDownList
-					v-if="infoInstanceUnit.length > 1"
-					:info="infoInstanceUnit"
-					@clicked="calculateValueOnUnitChange"
-				/>
-				<span v-else>{{ infoInstanceUnit[0] }}</span>
-			</div>
-		</span>
-	</li>
+    <ul>
+		<ElementInfoListItem
+			v-for="(loopValue, key) in properties(index, 3)"
+			:infoInstanceKey="translations[key]"
+			:infoInstanceValue="loopValue.value"
+			:infoInstanceUnit="loopValue.unit"
+			:key="key"
+		/>
+    </ul>
 </template>
 <script>
-import DropDownList from "../../../helpers/components/DropDownList.vue";
+import ElementInfoListItem from "./ElementInfoList/ElementInfoListItem.vue";
+import { mapState, mapGetters } from "vuex";
+import translations from "../../../assets/translations.json";
 
 export default {
-	name: "Element Info List",
+    name: "Element Info List",
 	props: {
 		infoInstanceKey: String,
 		infoInstanceValue: [String, Number],
 		infoInstanceUnit: Array,
+        index: Number,
 	},
-	components: { DropDownList },
+    components: { ElementInfoListItem },
 	data() {
 		return {
-			unit: "",
-			calculatedInfoInstanceValue: this.infoInstanceValue,
+			translations: translations,
 		};
 	},
-	methods: {
-		calculateValueOnUnitChange(value) {
-			this.unit = value;
-			switch (value) {
-				case "Å":
-					this.calculatedInfoInstanceValue =
-						this.infoInstanceValue / 100;
-					break;
-				case "°C":
-					this.calculatedInfoInstanceValue =
-						Math.round((this.infoInstanceValue - 273.15) * 100) /
-						100;
-					break;
-				case "°F":
-					this.calculatedInfoInstanceValue =
-						Math.round(
-							(((this.infoInstanceValue - 273.15) * 9) / 5 + 32) *
-								100
-						) / 100;
-					break;
-				case "eV":
-					this.calculatedInfoInstanceValue =
-						Math.round(this.infoInstanceValue * 0.01036427 * 100) /
-						100;
-					break;
-				case "kg/m^3":
-					this.calculatedInfoInstanceValue =
-						Math.round(this.infoInstanceValue * 1000 * 100) / 100;
-					break;
-				default:
-					this.calculatedInfoInstanceValue = this.infoInstanceValue;
-					break;
-			}
-		},
+    computed: {
+		...mapGetters(["properties"]),
+		...mapState({
+			tableMode: (state) => state.global.tableMode,
+		})
+    },
+	mounted() {
+		if(this.tableMode == 'list') {
+			this.$store.commit('stopModeLoading');
+			this.$store.commit('turnListAlive');
+		}
 	},
-	computed: {
-		preparedForRenderValue() {
-			return this.infoInstanceKey == "Konfiguracja elektronowa" ||
-				this.infoInstanceKey == "Pełna konfiguracja elektronowa"
-				? this.calculatedInfoInstanceValue.replace(
-						/(\d[a-z])(\d+)/g,
-						"$1<sup>$2</sup>"
-				  )
-				: this.calculatedInfoInstanceValue;
-		},
-	},
-};
+}
 </script>

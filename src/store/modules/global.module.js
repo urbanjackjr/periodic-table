@@ -2,6 +2,7 @@ const global = {
     state: {
         tableMode: "grid",
         modeLoading: false,
+        listAlive: false
     },
     mutations: {
         changeTableMode(state, mode) {
@@ -12,6 +13,9 @@ const global = {
         },
         stopModeLoading(state) {
             state.modeLoading = false;
+        },
+        turnListAlive(state) {
+            state.listAlive = true;
         }
     },
     actions: {

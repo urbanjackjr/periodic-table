@@ -11,7 +11,8 @@
 					<DropDownList
 						v-if="loopValue.unit.length > 1"
 						:info="loopValue.unit"
-						@clicked="getUnitFromChildComponent, calculateValueOnUnitChange(loopValue.value)"
+						@unitChange="calculateValueOnUnitChange(loopValue.value)"
+						@clicked="getUnitFromChildComponent"
 					/>
 					<span v-else>{{ loopValue.unit[0] }}</span>
 				</div>
@@ -22,7 +23,7 @@
 <script>
 import DropDownList from "./DropDownList.vue";
 import translations from "../../assets/translations.json";
-import { mapGetters } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
 	name: "Element Info List",
@@ -41,40 +42,30 @@ export default {
 	methods: {
 		getUnitFromChildComponent(unit) {
 			this.unit = unit;
-			console.log(this.unit)
 		},
 		calculateValueOnUnitChange(value) {
-			// console.log(this.unit);
-			this.value = value;
+			console.log(this.unit);
 			switch (this.unit) {
 				case "Å":
-					value =
-						this.value / 100;
-					break;
+					return value / 100;
 				case "°C":
-					value =
-						Math.round((this.value - 273.15) * 100) /
+					return Math.round((value - 273.15) * 100) /
 						100;
-					break;
 				case "°F":
-					value =
+					return value =
 						Math.round(
-							(((this.value - 273.15) * 9) / 5 + 32) *
+							(((value - 273.15) * 9) / 5 + 32) *
 								100
 						) / 100;
-					break;
 				case "eV":
-					value =
-						Math.round(this.value * 0.01036427 * 100) /
+					return value =
+						Math.round(value * 0.01036427 * 100) /
 						100;
-					break;
 				case "kg/m^3":
-					value =
-						Math.round(this.value * 1000 * 100) / 100;
-					break;
+					return value =
+						Math.round(value * 1000 * 100) / 100;
 				default:
-					value = value;
-					break;
+					return value;
 			}
 		},
 		preparedForRenderValue(key, value) {
@@ -84,11 +75,19 @@ export default {
 						/(\d[a-z])(\d+)/g,
 						"$1<sup>$2</sup>"
 				  )
-				: value;
+				: this.calculateValueOnUnitChange(value);
 		},
 	},
 	computed: {
 		...mapGetters(["properties"]),
+		...mapState({
+			modeLoading: (state) => state.global.modeLoading,
+			listAlive: (state) => state.global.listAlive
+		})
+	},
+	mounted() {
+		this.$store.commit('stopModeLoading');
+		this.$store.commit('turnListAlive');
 	},
 };
 </script>
