@@ -59,6 +59,7 @@ export default {
 			tabledata: (state) => state.tabledata,
 			mainInfo: (state) => state.mainInfo,
 			tableMode: (state) => state.global.tableMode,
+			modeLoading: (state) => state.global.modeLoading,
 		}),
 	},
 };

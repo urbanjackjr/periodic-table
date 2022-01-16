@@ -5,11 +5,19 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Układ okresowy pierwiastków</title>
+    <link rel="stylesheet" href="/onload.css">
   </head>
   <body>
+    <div class="lds-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
     <div id="app" class="app">
-      <img style="background: black;" src="./src/assets/loader.svg" alt="" srcset="">
     </div>
+    <script>
+      window.onload = function() {
+        document.querySelector('.lds-wrapper').style.opacity = 0;
+
+        setTimeout(() => document.querySelector('.lds-wrapper').style.zIndex = '-1', 500)
+      }
+    </script>
     <script type="module" src="/src/main.js"></script>
     <script defer type="text/javascript" src="/jsmol/JSmol.min.js"></script>
     <script defer type="text/javascript" src="/jsmol/JSmol.GLmol.min.js"></script>

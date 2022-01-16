@@ -22,21 +22,3 @@ export default {
 	},
 };
 </script>
-<style lang="scss" scoped>
-.menu {
-	.loadingWrapper {
-		.loading {
-			position: static;
-			transition: 0.5s ease;
-		}
-	}
-
-	.errorWrapper {
-		display: inline-block;
-		width: auto;
-		height: auto;
-		position: static;
-		padding: 20px;
-	}
-}
-</style>

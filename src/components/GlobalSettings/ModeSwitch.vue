@@ -14,7 +14,7 @@ export default {
         clickMethod(tableMode) {
             if(tableMode == 'list' && !this.listAlive) this.startModeLoading();
             this.changeTableMode(tableMode);
-        }
+        },
     },
     computed: {
         ...mapState({

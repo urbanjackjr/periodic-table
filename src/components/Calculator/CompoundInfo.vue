@@ -25,20 +25,3 @@ export default {
 	},
 };
 </script>
-<style lang="scss" scoped>
-.loading {
-	z-index: 102;
-	position: fixed;
-	display: grid;
-	place-items: center;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-
-	svg {
-		max-width: 300px;
-		width: 100%;
-	}
-}
-</style>

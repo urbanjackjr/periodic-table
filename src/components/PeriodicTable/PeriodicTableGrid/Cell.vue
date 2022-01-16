@@ -17,9 +17,8 @@
 				class="visualizer"
 			></div>
 		</div>
-      	<span v-if="modeLoading">Loading...</span>
 		<keep-alive>
-			<ElementInfoList v-if="tableMode == 'list'" class="elementInfoList" :index="index" />
+			<ElementInfoList :style="{display: tableMode == 'list' ? 'block' : 'none'}" class="elementInfoList" :index="index" />
 		</keep-alive>
 	</li>
 </template>
