@@ -17,9 +17,7 @@
 				class="visualizer"
 			></div>
 		</div>
-		<keep-alive>
-			<ElementInfoList :style="{display: tableMode == 'list' ? 'block' : 'none'}" class="elementInfoList" :index="index" />
-		</keep-alive>
+		<ElementInfoList v-show="tableMode == 'list' && visible" class="elementInfoList" :index="index" />
 	</li>
 </template>
 <script>
@@ -35,6 +33,8 @@ export default {
 	data() {
 		return {
 			translations: translations,
+			observer: null,
+			visible: false,
 		}
 	},
 	props: {
@@ -52,6 +52,20 @@ export default {
 			modeLoading: (state) => state.global.modeLoading
 		}),
 		...mapGetters(["properties"]),
+	},
+	mounted() {
+		this.observer = new IntersectionObserver(([entry]) => {
+			console.log(entry.isIntersecting)
+			this.visible = entry.isIntersecting;
+		}, {
+			threshold: 0,
+			rootMargin: '200px',
+		});
+
+		this.observer.observe(this.$el);
+	},
+	destroyed() {
+		this.observer.disconnect();
 	},
 };
 </script>

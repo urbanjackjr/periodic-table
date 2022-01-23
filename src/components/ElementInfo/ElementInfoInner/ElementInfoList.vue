@@ -37,7 +37,6 @@ export default {
 	mounted() {
 		if(this.tableMode == 'list') {
 			this.$store.commit('stopModeLoading');
-			this.$store.commit('turnListAlive');
 		}
 	},
 }

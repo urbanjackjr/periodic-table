@@ -1,6 +1,6 @@
 <template>
 	<ElementSearch @update:searchValue="searchUpdate" />
-	<ul :class="['table', tableMode]">
+	<ul :class="['table', tableMode]" ref="table">
 		<PropertyChoice v-if="tableMode == 'grid'" />
 		<Legend v-if="tableMode == 'grid'" />
 		<Cell
@@ -37,6 +37,8 @@ export default {
 	data() {
 		return {
 			searchQuery: '',
+			observer: null,
+			visibleCells: [],
 		}
 	},
 	methods: {
@@ -59,7 +61,6 @@ export default {
 			tabledata: (state) => state.tabledata,
 			mainInfo: (state) => state.mainInfo,
 			tableMode: (state) => state.global.tableMode,
-			modeLoading: (state) => state.global.modeLoading,
 		}),
 	},
 };
