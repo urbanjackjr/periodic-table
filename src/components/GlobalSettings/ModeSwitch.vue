@@ -10,9 +10,8 @@ import { mapState, mapMutations } from 'vuex';
 export default {
     name: "Mode Switch",
     methods: {
-        ...mapMutations(["changeTableMode", "startModeLoading"]),
+        ...mapMutations(["changeTableMode", "startModeLoading", "turnOffList", "turnOnList"]),
         clickMethod(tableMode) {
-            if(tableMode == 'list' && !this.listAlive) this.startModeLoading();
             this.changeTableMode(tableMode);
         },
     },

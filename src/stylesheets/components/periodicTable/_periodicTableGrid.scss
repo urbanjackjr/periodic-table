@@ -5,6 +5,11 @@
         display: grid;
         grid-template-columns: repeat(18, 1fr);
         gap: 5px;
+        overflow-x: scroll;
+
+        @include respond-to('medium') {
+            gap: .2vw;
+        }
     }
 
     &.list {

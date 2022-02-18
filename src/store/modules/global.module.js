@@ -14,13 +14,24 @@ const global = {
         stopModeLoading(state) {
             state.modeLoading = false;
         },
-        turnListAlive(state) {
+        turnOffList(state) {
+            state.listAlive = false;
+        },
+        turnOnList(state) {
             state.listAlive = true;
         }
     },
     actions: {
 
     },
+    getters: {
+        isListAlive(state) {
+            return state.listAlive;
+        },
+        getTableMode(state) {
+            return state.tableMode;
+        }
+    }
 }
 
 export default global

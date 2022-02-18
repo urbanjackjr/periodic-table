@@ -5,6 +5,11 @@
     position: relative;
     width: 100%;
     max-width: 420px;
+    padding: 0 1.25rem;
+
+    @include respond-to('medium') {
+        max-height: 30vh;
+    }
 
     @import 'elementInfoList/elementInfoListItem';
 }

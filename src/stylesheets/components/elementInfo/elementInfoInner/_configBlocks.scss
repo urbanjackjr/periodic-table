@@ -7,23 +7,23 @@
     transition: 0.5s cubic-bezier(.26,1.07,.85,1);
 
     button {
-        font-size: 16px;
-        padding: 10px 20px;
+        font-size: 1rem;
+        padding: 0.625rem 1.25rem;
         border-radius: 0 0 10px 10px;
         border-top: 0;
         display: flex;
         margin: 0 auto;
         align-items: center;
         position: absolute;
-        bottom: -40px;
+        bottom: -2.5rem;
         left: 50%;
         transform: translate(-50%, 0);
         width: 100%;
-        max-width: 298px;
+        max-width: 18.68rem;
         
         svg {
-            margin-left: 10px;
-            width: 15px;
+            margin-left: 0.625rem;
+            width: 0.9375rem;
             transition: 0.5s cubic-bezier(.26,1.07,.85,1);
         }
     }

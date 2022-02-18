@@ -1,13 +1,17 @@
-.menu {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 2px solid #EE4B67;
-    box-shadow: 0px 0px 5px 1px rgb(238, 75, 103, 0.8);
-
-    @import 
-        'compoundInfoInner/menuItems/compoundInfoList',
-        'compoundInfoInner/menuItems/compoundList';
+.compound {
+    z-index: 103;
+    
+    .menu {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid #EE4B67;
+        box-shadow: 0px 0px 5px 1px rgb(238, 75, 103, 0.8);
+    
+        @import 
+            'compoundInfoInner/menuItems/compoundInfoList',
+            'compoundInfoInner/menuItems/compoundList';
+    }
 }

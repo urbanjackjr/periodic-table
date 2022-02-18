@@ -5,9 +5,9 @@
 
     svg {
         color: var(--main-text);
-        width: 38px;
+        width: 2.25rem;
         cursor: pointer;
-        padding: 8px;
+        padding: 0.5rem;
 
         @include themify($themes) {
             color: themed('main-text');

@@ -1,5 +1,5 @@
 <template>
-	<div class="elementInfo-wrapper">
+	<div class="elementInfo-wrapper compound">
 		<div class="back" @click="hideCompoundInfo()"></div>
 		<div class="elementInfo">
 			<Viewer viewerId="viewer" :showOptions="true" />

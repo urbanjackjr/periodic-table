@@ -1,10 +1,8 @@
 <template>
 <div>
 	<ElementSearch @update:searchValue="searchUpdate" />
-	<ul :class="['table', 'grid']">
-		<PropertyChoice />
-		<Legend />
-		<GridCell
+	<ul :class="['table', 'list']">
+		<Cell
 			v-for="atom in tabledata"
 			:key="atom.index"
 			:class="[
@@ -14,28 +12,24 @@
 					? 'fBlockSymbol'
 					: '',
 			]"
+			:style="{order: atom.atomicNumber}"
 			:atomicNumber="atom.atomicNumber"
 			:symbol="atom.symbol"
 			:name="atom.name"
-			:info="atom.name ? atom[mainInfo] : {}"
 			:index="atom.index"
 			@click="this.chooseAtomFromTable(atom)"
 		/>
-		<Watermark class="watermark" />
 	</ul>
-	</div>
+    </div>
 </template>
 <script>
 import ElementSearch from "./PeriodicTableGrid/ElementSearch.vue";
-import GridCell from "./PeriodicTableGrid/GridCell.vue";
-import Legend from "./PeriodicTableGrid/Legend.vue";
-import PropertyChoice from "./PeriodicTableGrid/PropertyChoice.vue";
-import Watermark from "./PeriodicTableGrid/Watermark.vue";
+import Cell from "./PeriodicTableGrid/Cell.vue";
 import { mapState, mapActions } from "vuex";
 
 export default {
 	name: "Periodic Table",
-	components: { ElementSearch, GridCell, Legend, PropertyChoice, Watermark },
+	components: { ElementSearch, Cell },
 	data() {
 		return {
 			searchQuery: '',

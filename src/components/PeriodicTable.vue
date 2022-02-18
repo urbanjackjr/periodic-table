@@ -1,17 +1,16 @@
 <template>
-	<PeriodicTableGrid />
+	<PeriodicTableGrid v-show="tableMode === 'grid'" />
+	<PeriodicTableList v-show="tableMode === 'list'" />
 </template>
 <script>
 import Loading from "../helpers/components/Loading.vue";
 import PeriodicTableGrid from "./PeriodicTable/PeriodicTableGrid.vue";
-import { mapState, mapActions } from "vuex";
+import PeriodicTableList from "./PeriodicTable/PeriodicTableList.vue";
+import { mapState } from "vuex";
 
 export default {
 	name: "Periodic Table",
-	components: { PeriodicTableGrid, Loading },
-	methods: {
-		...mapActions(["chooseAtomFromTable"]),
-	},
+	components: { PeriodicTableGrid, PeriodicTableList, Loading },
 	computed: {
 		...mapState({
 			tableMode: (state) => state.global.tableMode,
