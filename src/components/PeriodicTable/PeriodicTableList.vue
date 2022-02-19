@@ -1,6 +1,4 @@
 <template>
-<div>
-	<ElementSearch @update:searchValue="searchUpdate" />
 	<ul :class="['table', 'list']">
 		<Cell
 			v-for="atom in tabledata"
@@ -20,26 +18,16 @@
 			@click="this.chooseAtomFromTable(atom)"
 		/>
 	</ul>
-    </div>
 </template>
 <script>
-import ElementSearch from "./PeriodicTableGrid/ElementSearch.vue";
-import Cell from "./PeriodicTableGrid/Cell.vue";
+import Cell from "./PeriodicTable__/ListCell.vue";
 import { mapState, mapActions } from "vuex";
 
 export default {
 	name: "Periodic Table",
-	components: { ElementSearch, Cell },
-	data() {
-		return {
-			searchQuery: '',
-		}
-	},
+	components: { Cell },
 	methods: {
 		...mapActions(["chooseAtomFromTable"]),
-		searchUpdate(value) {
-			this.searchQuery = value;
-		},
 		isSearchedFor(symbol, name) {
 			if(this.searchQuery.length && name) {
 				if(!symbol.includes(this.searchQuery) && !name.includes(this.searchQuery)) {
@@ -54,7 +42,7 @@ export default {
 		...mapState({
 			tabledata: (state) => state.tabledata,
 			mainInfo: (state) => state.mainInfo,
-			tableMode: (state) => state.global.tableMode,
+			searchQuery: (state) => state.global.searchQuery,
 		}),
 	},
 };

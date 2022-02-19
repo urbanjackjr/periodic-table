@@ -1,0 +1,9 @@
+.tableSettings {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+
+    @import 
+        'tableSettings/propertyChoice',
+        'tableSettings/elementSearch';
+}

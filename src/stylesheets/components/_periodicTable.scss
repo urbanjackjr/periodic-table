@@ -1,1 +1,18 @@
-@import 'periodicTable/periodicTableGrid';
+.tableWrap {
+    @import 
+        'periodicTable/periodicTableGrid',
+        'periodicTable/periodicTableList',
+        'elementInfo/elementInfoInner/elementInfoList',
+        'periodicTable/tableSettings';
+
+    .inline {
+        position: relative;
+    }
+
+    .table li {
+        position: relative;
+        display: flex;
+    
+        @include pt-seriesify($button: false, $back: true, $child: '.mainInfo');
+    }
+}

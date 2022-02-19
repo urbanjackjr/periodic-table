@@ -1,0 +1,55 @@
+> li {
+
+    &.fBlockSymbol {
+
+		.mainInfo {
+
+			h2 {
+				font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+				line-height: 1;
+
+				span {
+	
+					@include respond-to('medium') {
+						display: none;
+					}
+				}
+			}
+
+			h6 {
+				display: none;
+			}
+		}
+	}
+
+	&.lantanowiec {
+		margin-top: 30px;
+	}
+
+    @import 'cell';
+
+	.mainInfo {
+        padding: .625rem 0.3125rem;
+        cursor: pointer;
+
+		h2 {
+            font-size: min(2.4vw, 2rem);
+
+            @include respond-to('large') {
+                font-size: clamp(1rem, 1.7vw, 2rem);
+            }
+
+            @include respond-to('medium') {
+                font-size: max(1rem, 3vw);
+            }
+
+			span {
+                font-size: clamp(0.6rem, 1.1vw, 1rem);
+    
+                @include respond-to('medium') {
+                    display: none;
+                }
+			}
+		}
+	}
+}

@@ -1,51 +1,39 @@
 <template>
-<div>
-	<ElementSearch @update:searchValue="searchUpdate" />
-	<ul :class="['table', 'grid']">
-		<PropertyChoice />
+	<div class="inline">
 		<Legend />
-		<GridCell
-			v-for="atom in tabledata"
-			:key="atom.index"
-			:class="[
-				!atom.symbol || isSearchedFor(atom.symbol, atom.name) ? 'h' : '',
-				atom.groupBlock ? atom.groupBlock.value : '',
-				atom.symbol == 'La-Lu' || atom.symbol == 'Ac-Lr'
-					? 'fBlockSymbol'
-					: '',
-			]"
-			:atomicNumber="atom.atomicNumber"
-			:symbol="atom.symbol"
-			:name="atom.name"
-			:info="atom.name ? atom[mainInfo] : {}"
-			:index="atom.index"
-			@click="this.chooseAtomFromTable(atom)"
-		/>
-		<Watermark class="watermark" />
-	</ul>
+		<ul :class="['table', 'grid']">
+			<GridCell
+				v-for="atom in tabledata"
+				:key="atom.index"
+				:class="[
+					!atom.symbol || isSearchedFor(atom.symbol, atom.name) ? 'h' : '',
+					atom.groupBlock ? atom.groupBlock.value : '',
+					atom.symbol == 'La-Lu' || atom.symbol == 'Ac-Lr'
+						? 'fBlockSymbol'
+						: '',
+				]"
+				:atomicNumber="atom.atomicNumber"
+				:symbol="atom.symbol"
+				:name="atom.name"
+				:info="atom.name ? atom[mainInfo] : {}"
+				:index="atom.index"
+				@click="this.chooseAtomFromTable(atom)"
+			/>
+			<Watermark class="watermark" />
+		</ul>
 	</div>
 </template>
 <script>
-import ElementSearch from "./PeriodicTableGrid/ElementSearch.vue";
-import GridCell from "./PeriodicTableGrid/GridCell.vue";
-import Legend from "./PeriodicTableGrid/Legend.vue";
-import PropertyChoice from "./PeriodicTableGrid/PropertyChoice.vue";
-import Watermark from "./PeriodicTableGrid/Watermark.vue";
+import GridCell from "./PeriodicTable__/GridCell.vue";
+import Legend from "./PeriodicTable__/Legend.vue";
+import Watermark from "./PeriodicTable__/Watermark.vue";
 import { mapState, mapActions } from "vuex";
 
 export default {
 	name: "Periodic Table",
-	components: { ElementSearch, GridCell, Legend, PropertyChoice, Watermark },
-	data() {
-		return {
-			searchQuery: '',
-		}
-	},
+	components: { GridCell, Legend, Watermark },
 	methods: {
 		...mapActions(["chooseAtomFromTable"]),
-		searchUpdate(value) {
-			this.searchQuery = value;
-		},
 		isSearchedFor(symbol, name) {
 			if(this.searchQuery.length && name) {
 				if(!symbol.includes(this.searchQuery) && !name.includes(this.searchQuery)) {
@@ -60,7 +48,7 @@ export default {
 		...mapState({
 			tabledata: (state) => state.tabledata,
 			mainInfo: (state) => state.mainInfo,
-			tableMode: (state) => state.global.tableMode,
+			searchQuery: (state) => state.global.searchQuery,
 		}),
 	},
 };

@@ -1,11 +1,9 @@
 <template>
     <li class="lazyRender">
-        	<slot v-if="visible" />
+		<slot v-if="visible" />
     </li>
 </template>
 <script>
-import { mapState, mapMutations, mapGetters } from "vuex";
-
 export default {
     name: "Lazy Render",
     data() {
@@ -13,15 +11,6 @@ export default {
             observer: null,
             visible: false,
         }
-    },
-	methods: {
-		...mapMutations(["turnOnList"])
-	},
-    computed: {
-        ...mapState({
-            listAlive: (state) => state.global.listAlive,
-        }),
-		...mapGetters(["isListAlive"])
     },
 	mounted() {
 		this.observer = new IntersectionObserver(([entry]) => {

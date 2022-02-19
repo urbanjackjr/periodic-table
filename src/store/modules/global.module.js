@@ -2,7 +2,7 @@ const global = {
     state: {
         tableMode: "grid",
         modeLoading: false,
-        listAlive: false
+        searchQuery: ''
     },
     mutations: {
         changeTableMode(state, mode) {
@@ -14,11 +14,8 @@ const global = {
         stopModeLoading(state) {
             state.modeLoading = false;
         },
-        turnOffList(state) {
-            state.listAlive = false;
-        },
-        turnOnList(state) {
-            state.listAlive = true;
+        searchQueryUpdate(state, query) {
+            state.searchQuery = query;
         }
     },
     actions: {

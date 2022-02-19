@@ -1,5 +1,5 @@
 <template>
-    <ul>
+    <ul class="elementInfoList">
 		<ElementInfoListItem
 			v-for="(loopValue, key) in properties(index, 3)"
 			:infoInstanceKey="translations[key]"

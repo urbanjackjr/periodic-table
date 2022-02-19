@@ -1,0 +1,52 @@
+> li {
+	margin-bottom: 10px;
+	justify-content: center;
+	min-height: 200px;
+
+	&.fBlockSymbol {
+		display: none;
+	}
+
+	&.lantanowiec {
+		margin-top: 0;
+	}
+
+	@import 'cell';
+
+	.mainInfo {
+		padding: 10px 20px;
+		cursor: auto;
+
+		@include respond-to('medium') {
+			flex: 0 0 110px;
+		}
+
+		h2 {
+			font-size: 3rem;
+
+			@include respond-to('medium') {
+				font-size: 2rem;
+			}
+
+			span {
+				font-size: 1.3rem;
+
+				@include respond-to('medium') {
+					font-size: 1rem;
+				}
+			}
+		}
+
+		h6 {
+
+			&.elementName {
+				font-size: 1.2rem;
+
+				@include respond-to('medium') {
+					display: block;
+					font-size: 1rem;
+				}
+			}
+		}
+	}
+}

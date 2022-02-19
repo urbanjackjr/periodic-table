@@ -1,10 +1,15 @@
 .elementSearch {
     border-radius: 10px;
-    margin-bottom: 1.25rem;
+    font-size: 1rem;
 
     @include themify($themes) {
         border: 2px solid themed('main-text');
         background: themed('main-background-100');
         color: themed('main-background-900');
+    }
+
+    @include respond-to('medium') {
+        font-size: 0.8rem;
+        padding: 0.5rem;
     }
 }

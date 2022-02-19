@@ -1,0 +1,14 @@
+.propertyChoice {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-left: 1.5rem;
+
+    .dropDownList {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 98;
+    }
+}

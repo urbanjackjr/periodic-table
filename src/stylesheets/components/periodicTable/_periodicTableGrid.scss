@@ -1,31 +1,17 @@
-.table {
+@import 'periodicTable__/legend';
+
+.grid {
+    display: grid;
     position: relative;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 5px;
+    overflow-x: scroll;
 
-    &.grid {
-        display: grid;
-        grid-template-columns: repeat(18, 1fr);
-        gap: 5px;
-        overflow-x: scroll;
-
-        @include respond-to('medium') {
-            gap: .2vw;
-        }
-    }
-
-    &.list {
-        display: flex;
-        flex-direction: column;
-
-        .h {
-            display: none;
-        }
+    @include respond-to('medium') {
+        gap: .2vw;
     }
     
     @import 
-        'periodicTableGrid/cell',
-        'periodicTableGrid/legend',
-        'periodicTableGrid/propertyChoice',
-        'periodicTableGrid/watermark';
+        'periodicTable__/gridCell',
+        'periodicTable__/watermark';
 }
-
-@import 'periodicTableGrid/elementSearch';

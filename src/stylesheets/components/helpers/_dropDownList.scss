@@ -18,6 +18,11 @@
         z-index: 1;
         cursor: pointer;
         position: relative;
+
+        @include respond-to('medium') {
+            padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+            font-size: 0.8rem;
+        }
   
         svg {
             position: absolute;
@@ -25,6 +30,11 @@
             top: 13px;
             right: 18px;
             transition: 0.5s ease;
+
+            @include respond-to('medium') {
+                top: 10px;
+                right: 10px;
+            }
         }
     }
   
@@ -34,7 +44,7 @@
         margin: 0;
   
         li {
-            font-size: 15px;
+            font-size: 0.9375rem;
             padding: 5px 0 8px;
             border-bottom: 1px solid #343434;
             list-style: none;
@@ -42,6 +52,10 @@
 
             &:last-child {
                 border: 0;
+            }
+
+            @include respond-to('medium') {
+                font-size: 0.8rem;
             }
         }
     }
