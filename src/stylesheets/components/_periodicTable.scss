@@ -1,9 +1,5 @@
 .tableWrap {
-    @import 
-        'periodicTable/periodicTableGrid',
-        'periodicTable/periodicTableList',
-        'elementInfo/elementInfoInner/elementInfoList',
-        'periodicTable/tableSettings';
+    overflow-x: scroll;
 
     .inline {
         position: relative;
@@ -15,4 +11,9 @@
     
         @include pt-seriesify($button: false, $back: true, $child: '.mainInfo');
     }
+    
+    @import 
+        'periodicTable/periodicTableGrid',
+        'periodicTable/periodicTableList',
+        'elementInfo/elementInfoInner/elementInfoList';
 }
