@@ -4,6 +4,10 @@
     .inline {
         position: relative;
         width: 100%;
+
+        @include respond-to('large') {
+            width: auto;
+        }
     }
 
     .table li {
