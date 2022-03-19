@@ -6,6 +6,9 @@
 <script>
 export default {
     name: "Lazy Render",
+	props: {
+		index: [Number, String],
+	},
     data() {
         return {
             observer: null,
@@ -14,7 +17,12 @@ export default {
     },
 	mounted() {
 		this.observer = new IntersectionObserver(([entry]) => {
-			this.visible = entry.isIntersecting;
+			if(this.index < 4) {
+				this.visible = true;
+			}
+			else {
+				this.visible = entry.isIntersecting;
+			}
 		}, {
 			threshold: 0,
 			rootMargin: '200px',

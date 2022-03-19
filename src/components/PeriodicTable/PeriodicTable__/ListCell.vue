@@ -1,5 +1,5 @@
 <template>
-	<LazyRender>
+	<LazyRender :index="atomicNumber">
 			<div :class="['mainInfo', cellClass]">
 				<h2>
 					<span class="atomicNumber">{{ atomicNumber }}</span

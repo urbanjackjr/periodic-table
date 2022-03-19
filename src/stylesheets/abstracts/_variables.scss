@@ -2,21 +2,14 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
-
-
-
-
 /// Regular font family
 /// @type List
-$text-font-stack: 'Dosis', sans-serif !default;
+$text-font-stack: "Dosis", sans-serif !default;
 
 /// Code (monospace) font family
 /// @type List
-$code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
-
-
-
-
+$code-font-stack: "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+	"Monaco", monospace !default;
 
 /// Copy text color
 /// @type Color
@@ -38,48 +31,37 @@ $mid-grey: rgb(153, 153, 153) !default;
 /// @type Color
 $dark-grey: rgb(68, 68, 68) !default;
 
-
-
-
-
 /// Container's maximum width
 /// @type Length
 $max-width: 1920px !default;
-
-
-
-
 
 /// Breakpoints map
 /// @prop {String} keys - Keys are identifiers mapped to a given length
 /// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
-  'small': 320px,
-  'medium': 768px,
-  'large': 1250px,
+	"small": 320px,
+	"medium": 768px,
+	"large": 1250px,
 ) !default;
-
 
 /// Periodic Table Series List
-/// @prop {String} keys 
-/// @prop {Map} values 
+/// @prop {String} keys
+/// @prop {Map} values
 $pt-series: (
-  'niemetal': $block-color-1, 
-  'metal.alkaliczny': $block-color-2, 
-  'metal.ziem': $block-color-3,
-  'metal.przejsciowy': $block-color-4,
-  'metal': $block-color-5,
-  'półmetal': $block-color-6,
-  'halogen': $block-color-7,
-  'szlachetny': $block-color-8,
-  'lantanowiec': $block-color-9,
-  'aktynowiec': $block-color-10,
+	"niemetal": $block-color-1,
+	"metal.alkaliczny": $block-color-2,
+	"metal.ziem": $block-color-3,
+	"metal.przejsciowy": $block-color-4,
+	"metal": $block-color-5,
+	"półmetal": $block-color-6,
+	"halogen": $block-color-7,
+	"szlachetny": $block-color-8,
+	"lantanowiec": $block-color-9,
+	"aktynowiec": $block-color-10,
 ) !default;
-
-
 
 /// Relative or absolute URL where all assets are served from
 /// @type String
 /// @example scss - When using a CDN
 ///   $base-url: 'http://cdn.example.com/assets/';
-$base-url: '/assets/' !default;
+$base-url: "/assets/" !default;
