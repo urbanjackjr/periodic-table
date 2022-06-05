@@ -6,11 +6,9 @@
 			:class="[
 				!atom.symbol || isSearchedFor(atom.symbol, atom.name) ? 'h' : '',
 				atom.groupBlock ? atom.groupBlock.value : '',
-				atom.symbol == 'La-Lu' || atom.symbol == 'Ac-Lr'
-					? 'fBlockSymbol'
-					: '',
+				atom.symbol == 'La-Lu' || atom.symbol == 'Ac-Lr' ? 'fBlockSymbol' : '',
 			]"
-			:style="{order: atom.atomicNumber}"
+			:style="{ order: atom.atomicNumber }"
 			:atomicNumber="atom.atomicNumber"
 			:symbol="atom.symbol"
 			:name="atom.name"
@@ -29,14 +27,14 @@ export default {
 	methods: {
 		...mapActions(["chooseAtomFromTable"]),
 		isSearchedFor(symbol, name) {
-			if(this.searchQuery.length && name) {
-				if(!symbol.includes(this.searchQuery) && !name.includes(this.searchQuery)) {
+			if (this.searchQuery.length && name) {
+				if (!symbol.includes(this.searchQuery) && !name.includes(this.searchQuery)) {
 					return true;
 				}
 				return false;
 			}
 			return false;
-		}
+		},
 	},
 	computed: {
 		...mapState({
