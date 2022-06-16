@@ -7,29 +7,33 @@
 /// @param {Bool} $self [false] - Whether or not to include current selector
 /// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
 @mixin on-event($self: false) {
-    @if $self {
-        &,
-        &:hover,
-        &:active,
-        &:focus {
-            @content;
-        }
-    } @else {
-        &:hover,
-        &:active,
-        &:focus {
-            @content;
-        }
+  @if $self {
+
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
     }
+  }
+
+  @else {
+
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
 }
 
 /// Make a context based selector a little more friendly
 /// @author Kitty Giraudel
 /// @param {String} $context
 @mixin when-inside($context) {
-    #{$context} & {
-        @content;
-    }
+  #{$context} & {
+    @content;
+  }
 }
 
 /// Responsive breakpoint manager
@@ -37,68 +41,73 @@
 /// @param {String} $breakpoint - Breakpoint
 /// @requires $breakpoints
 @mixin respond-to($breakpoint) {
-    $raw-query: map-get($breakpoints, $breakpoint);
+  $raw-query: map-get($breakpoints, $breakpoint);
 
-    @if $raw-query {
-        $query: if(
-            type-of($raw-query) == "string",
-            unquote($raw-query),
-            inspect($raw-query)
-        );
+  @if $raw-query {
+    $query: if(type-of($raw-query)=="string",
+        unquote($raw-query),
+        inspect($raw-query));
 
-        @media (max-width: #{$query}) {
-            @content;
-        }
-    } @else {
-        @error 'No value found for `#{$breakpoint}`. '
-         + 'Please make sure it is defined in `$breakpoints` map.';
+    @media (max-width: #{$query}) {
+      @content;
     }
+  }
+
+  @else {
+    @error 'No value found for `#{$breakpoint}`. '
+    +'Please make sure it is defined in `$breakpoints` map.';
+  }
 }
 
 /// Themer
 /// @author medium
 /// @param {Map} $themes
 @mixin themify($themes: $themes) {
-    @each $theme, $map in $themes {
-        [theme="#{$theme}"] & {
-            $theme-map: () !global;
-            @each $key, $submap in $map {
-                $value: map-get(map-get($themes, $theme), "#{$key}");
-                $theme-map: map-merge(
-                    $theme-map,
-                    (
-                        $key: $value,
-                    )
-                ) !global;
-            }
 
-            @content;
-            $theme-map: null !global;
-        }
+  @each $theme,
+  $map in $themes {
+    [theme="#{$theme}"] & {
+      $theme-map: () !global;
+
+      @each $key,
+      $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge($theme-map,
+            ($key: $value,
+            )) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
     }
+  }
 }
 
 /// Series based styles
 /// @param {Map} $pt-series
 @mixin pt-seriesify($button: false, $back: false, $child: '') {
-    @each $serie, $color in $pt-series {
-        &.#{$serie} #{$child} {
-            border-color: $color;
-            box-shadow: 0px 0px 5px 1px #{$color}cc;
 
-            @if $button {
-                button,
-                div {
-                    border-color: $color;
-                }
-            }
+  @each $serie,
+  $color in $pt-series {
+    &.#{$serie} #{$child} {
+      border-color: $color;
+      box-shadow: 0px 0px 5px 1px rgba($color, .8);
 
-            @if $back {
-                .elementHeader,
-                .visualizer {
-                    background: #{$color}26;
-                }
-            }
+      @if $button {
+
+        button,
+        div {
+          border-color: $color;
         }
+      }
+
+      @if $back {
+
+        .elementHeader,
+        .visualizer {
+          background: rgba($color, .2);
+        }
+      }
     }
+  }
 }
