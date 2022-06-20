@@ -1,19 +1,22 @@
 <template>
-	<transition name="fade">
-		<div class="elementInfo-wrapper" v-if="showAllInfoIndex !== -1">
-			<ElementInfoInner />
-		</div>
-	</transition>
+  <transition name="fade">
+    <div
+      v-if="showAllInfoIndex !== -1"
+      class="elementInfo-wrapper"
+    >
+      <ElementInfoInner />
+    </div>
+  </transition>
 </template>
 <script>
-import ElementInfoInner from "./ElementInfo/ElementInfoInner.vue";
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
+import ElementInfoInner from './ElementInfo/ElementInfoInner.vue';
 
 export default {
-	name: "Element Info",
-	components: { ElementInfoInner },
-	computed: {
-		...mapState(["showAllInfoIndex"]),
-	},
+  name: 'ElementInfo',
+  components: { ElementInfoInner },
+  computed: {
+    ...mapState(['showAllInfoIndex']),
+  },
 };
 </script>

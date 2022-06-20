@@ -1,34 +1,34 @@
 const global = {
-    state: {
-        tableMode: "grid",
-        modeLoading: false,
-        searchQuery: ''
+  state: {
+    tableMode: 'grid',
+    modeLoading: false,
+    searchQuery: '',
+  },
+  mutations: {
+    changeTableMode(state, mode) {
+      state.tableMode = mode;
     },
-    mutations: {
-        changeTableMode(state, mode) {
-            state.tableMode = mode;
-        },
-        startModeLoading(state) {
-            state.modeLoading = true;
-        },
-        stopModeLoading(state) {
-            state.modeLoading = false;
-        },
-        searchQueryUpdate(state, query) {
-            state.searchQuery = query;
-        }
+    startModeLoading(state) {
+      state.modeLoading = true;
     },
-    actions: {
+    stopModeLoading(state) {
+      state.modeLoading = false;
+    },
+    searchQueryUpdate(state, query) {
+      state.searchQuery = query;
+    },
+  },
+  actions: {
 
+  },
+  getters: {
+    isListAlive(state) {
+      return state.listAlive;
     },
-    getters: {
-        isListAlive(state) {
-            return state.listAlive;
-        },
-        getTableMode(state) {
-            return state.tableMode;
-        }
-    }
-}
+    getTableMode(state) {
+      return state.tableMode;
+    },
+  },
+};
 
-export default global
+export default global;
